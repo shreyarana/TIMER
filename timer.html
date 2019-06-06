@@ -1,0 +1,64 @@
+
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+
+p {
+  text-align: center;
+  font-size: 60px;
+  
+}
+.intro{
+	text-align: center;
+	font size: 300px;
+	margin-top: 0px;
+	background-color: yellow;
+}
+#train {
+      position: relative;
+      cursor: pointer;
+    }
+</style>
+</head>
+<body>
+	<div class="intro">
+		<p>Timer for our college to re-open</p>
+	</div>
+<p id="demo"></p>
+<img id="train" src="https://js.cx/clipart/train.gif">
+<script>
+var finaldate = new Date("July 10, 2019 12:00:00").getTime();
+var x = setInterval(function(){
+var currentdate = new Date().getTime();
+var difference = finaldate - currentdate;
+var days = Math.floor(difference / (1000 * 60 * 60 * 24));
+var hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+var minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
+var seconds = Math.floor((difference % (1000 * 60)) / 1000);
+document.getElementById("demo").innerHTML = days + "d " + hours + "h "
+  + minutes + "m " + seconds + "s ";
+    
+if (difference < 0) {
+    clearInterval(x);
+    document.getElementById("demo").innerHTML = "COUNT DOWN IS OVER!!";
+  }
+}, 1000);
+train.onclick = function() {
+      let start = Date.now();
+
+      let timer = setInterval(function() {
+        let time = Date.now() - start;
+
+        train.style.left = time/ 1.7 + 'px';
+
+        if (time > 2000) 
+        	clearInterval(timer);
+
+      }, 20);
+    }
+</script>
+</body>
+</html>
+
